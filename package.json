@@ -1,0 +1,16 @@
+{
+  "name": "wedding-site",
+  "version": "1.0.0",
+  "description": "An elegant static wedding website with RSVP integration",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=8080 --open=index.html",
+    "start": "npm run dev"
+  },
+  "keywords": ["wedding", "static-site"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
