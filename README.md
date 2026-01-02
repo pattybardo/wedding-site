@@ -145,7 +145,7 @@ Edit CSS variables in `css/styles.css` (lines 7-12):
 The hero section features an automatic photo slideshow that cycles through your images every 5 seconds.
 
 **Current Setup:**
-- 13 photos are cycling in the slideshow
+- 19 photos are cycling in the slideshow
 - Images are in the `images/` folder
 - Smooth fade transitions between photos
 - Color-tinted overlay ensures text remains readable
@@ -155,23 +155,51 @@ The hero section features an automatic photo slideshow that cycles through your 
 
 1. **Add/Remove Photos:**
    - Add your photos to the `images/` folder
-   - Update the slideshow in `index.html` (lines 14-54)
+   - Update the slideshow in `index.html` (lines 14-72)
    - Add or remove `<div class="slide">` blocks as needed
 
 2. **Change Slide Duration:**
    - Edit `js/script.js` line 4
    - Change `slideInterval = 5000` (value in milliseconds)
 
-3. **Adjust Overlay Color:**
-   - Edit `css/styles.css` (lines 141-146)
-   - Modify the gradient colors in `.hero-overlay`
+3. **Adjust Photo Crop Position:**
+   - Some photos may cut off faces or important parts when cropped
+   - Add a class to the `<img>` tag to change the crop position
+   - Works on all devices including mobile
 
-Example of adding a new photo:
-```html
-<div class="slide">
-    <img src="images/your-photo.jpg" alt="Patrick & Gabriella">
-</div>
-```
+   **Available crop classes:**
+   - `crop-top` - Focus on top of image (good for faces)
+   - `crop-bottom` - Focus on bottom of image
+   - `crop-left` - Focus on left side
+   - `crop-right` - Focus on right side
+   - `crop-top-left` - Focus on top-left corner
+   - `crop-top-right` - Focus on top-right corner
+   - `crop-bottom-left` - Focus on bottom-left corner
+   - `crop-bottom-right` - Focus on bottom-right corner
+   - `crop-upper` - Focus slightly above center (30% from top)
+   - `crop-lower` - Focus slightly below center (70% from top)
+
+   **Example:**
+   ```html
+   <!-- Default center crop -->
+   <div class="slide">
+       <img src="images/photo1.jpg" alt="Patrick & Gabriella">
+   </div>
+
+   <!-- Crop to show faces at top of image -->
+   <div class="slide">
+       <img src="images/photo2.jpg" class="crop-top" alt="Patrick & Gabriella">
+   </div>
+
+   <!-- Fine-tune to upper portion -->
+   <div class="slide">
+       <img src="images/photo3.jpg" class="crop-upper" alt="Patrick & Gabriella">
+   </div>
+   ```
+
+4. **Adjust Overlay Color:**
+   - Edit `css/styles.css` (lines 177-182)
+   - Modify the gradient colors in `.hero-overlay`
 
 ## Deployment
 

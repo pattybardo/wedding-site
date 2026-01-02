@@ -131,6 +131,48 @@ p {
     object-position: center;
 }
 
+/* Different crop positions for individual photos */
+.slide img.crop-top {
+    object-position: center top;
+}
+
+.slide img.crop-bottom {
+    object-position: center bottom;
+}
+
+.slide img.crop-left {
+    object-position: left center;
+}
+
+.slide img.crop-right {
+    object-position: right center;
+}
+
+.slide img.crop-top-left {
+    object-position: left top;
+}
+
+.slide img.crop-top-right {
+    object-position: right top;
+}
+
+.slide img.crop-bottom-left {
+    object-position: left bottom;
+}
+
+.slide img.crop-bottom-right {
+    object-position: right bottom;
+}
+
+/* Fine-tuned positioning options */
+.slide img.crop-upper {
+    object-position: center 30%;
+}
+
+.slide img.crop-lower {
+    object-position: center 70%;
+}
+
 /* Overlay for text readability */
 .hero-overlay {
     position: absolute;
