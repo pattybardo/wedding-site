@@ -565,11 +565,51 @@ p {
     border-radius: 8px;
     border-left: 4px solid var(--color-primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.hotel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(249, 246, 243, 0.95));
+    z-index: 1;
+}
+
+.hotel-item > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hotel-item-gothia {
+    background-image: url('../images/gothia_towers.jpg');
+}
+
+.hotel-item-weaver {
+    background-image: url('../images/hotel_weaver.jpg');
+}
+
+.hotel-item-hostel {
+    background-image: url('../images/hostel_photo.jpg');
 }
 
 .hotel-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hotel-item:hover::before {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(249, 246, 243, 0.9));
 }
 
 .hotel-item h4 {
