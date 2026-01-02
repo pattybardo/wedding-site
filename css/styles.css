@@ -197,12 +197,11 @@ p {
 }
 
 .names {
-    font-family: 'Tangerine', cursive;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-weight: 400;
     letter-spacing: 0.1rem;
     margin-bottom: var(--spacing-sm);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    font-size: clamp(4rem, 8vw, 7rem);
+    font-size: clamp(3rem, 6vw, 5rem);
     line-height: 1.1;
 }
 
