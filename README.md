@@ -39,14 +39,18 @@ An elegant, static wedding website with RSVP integration via Google Forms.
 
 ```
 wedding-site/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml  # GitHub Actions deployment workflow
 ├── index.html          # Main wedding page
 ├── details.html        # Details & information page
 ├── css/
 │   └── styles.css      # All styling
 ├── js/
 │   └── script.js       # JavaScript for interactions
-├── images/             # Place your images here
+├── images/             # Your couple photos for the slideshow
 ├── package.json        # Project dependencies
+├── .gitignore          # Git ignore file
 └── README.md          # This file
 ```
 
@@ -171,20 +175,62 @@ Example of adding a new photo:
 
 ## Deployment
 
-### GitHub Pages
+### GitHub Pages (Recommended)
 
-1. Push your code to GitHub
-2. Go to repository Settings → Pages
-3. Select branch (main) and folder (root)
-4. Your site will be live at `https://username.github.io/wedding-site`
+This repository includes a GitHub Actions workflow that automatically deploys your site to GitHub Pages whenever you push to the main branch.
 
-### Netlify
+**Initial Setup:**
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial wedding site commit"
+   git push origin main
+   ```
+
+2. **Enable GitHub Pages**
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages** (in the left sidebar)
+   - Under "Build and deployment":
+     - Source: Select **GitHub Actions**
+   - Click **Save**
+
+3. **Wait for deployment**
+   - Go to the **Actions** tab in your repository
+   - You'll see the "Deploy to GitHub Pages" workflow running
+   - Once complete (green checkmark), your site is live!
+
+4. **Access your site**
+   - Your site will be live at: `https://[your-username].github.io/wedding-site`
+   - Or if you have a custom domain configured: your custom domain
+
+**Making Changes:**
+
+After the initial setup, any changes you push to the main branch will automatically trigger a new deployment:
+
+```bash
+git add .
+git commit -m "Update wedding details"
+git push origin main
+```
+
+The site will update automatically within 1-2 minutes.
+
+**Using Claude Web:**
+
+Once deployed, you can use Claude on the web to make changes:
+1. Access your repository through GitHub
+2. Use Claude to edit files directly
+3. Commit and push changes
+4. View the updated site on your phone at your GitHub Pages URL
+
+### Alternative: Netlify
 
 1. Push to GitHub
 2. Connect your repository to Netlify
 3. Deploy automatically on every push
 
-### Vercel
+### Alternative: Vercel
 
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run: `vercel`
