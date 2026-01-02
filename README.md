@@ -27,6 +27,7 @@ An elegant, static wedding website with RSVP integration via Google Forms.
 ## Features
 
 - Clean, elegant design with responsive layout
+- Automatic photo slideshow in hero section with elegant overlay
 - Smooth scrolling navigation
 - Main page with story, schedule, venue, and RSVP sections
 - Separate details page for accommodations, travel, and policies
@@ -135,16 +136,37 @@ Edit CSS variables in `css/styles.css` (lines 7-12):
 --color-accent: #C9ADA7;       /* Additional accent */
 ```
 
-### Add Images
+### Hero Slideshow
 
-1. Place images in the `images/` folder
-2. Update the hero section in `index.html` to add a background image:
-```css
-.hero {
-    background-image: url('../images/your-photo.jpg');
-    background-size: cover;
-    background-position: center;
-}
+The hero section features an automatic photo slideshow that cycles through your images every 5 seconds.
+
+**Current Setup:**
+- 13 photos are cycling in the slideshow
+- Images are in the `images/` folder
+- Smooth fade transitions between photos
+- Color-tinted overlay ensures text remains readable
+- Handles different aspect ratios automatically
+
+**To customize:**
+
+1. **Add/Remove Photos:**
+   - Add your photos to the `images/` folder
+   - Update the slideshow in `index.html` (lines 14-54)
+   - Add or remove `<div class="slide">` blocks as needed
+
+2. **Change Slide Duration:**
+   - Edit `js/script.js` line 4
+   - Change `slideInterval = 5000` (value in milliseconds)
+
+3. **Adjust Overlay Color:**
+   - Edit `css/styles.css` (lines 141-146)
+   - Modify the gradient colors in `.hero-overlay`
+
+Example of adding a new photo:
+```html
+<div class="slide">
+    <img src="images/your-photo.jpg" alt="Patrick & Gabriella">
+</div>
 ```
 
 ## Deployment
