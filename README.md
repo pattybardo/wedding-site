@@ -27,6 +27,7 @@ An elegant, static wedding website with RSVP integration via Google Forms.
 ## Features
 
 - Clean, elegant design with responsive layout
+- Automatic photo slideshow in hero section with elegant overlay
 - Smooth scrolling navigation
 - Main page with story, schedule, venue, and RSVP sections
 - Separate details page for accommodations, travel, and policies
@@ -38,14 +39,18 @@ An elegant, static wedding website with RSVP integration via Google Forms.
 
 ```
 wedding-site/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml  # GitHub Actions deployment workflow
 ├── index.html          # Main wedding page
 ├── details.html        # Details & information page
 ├── css/
 │   └── styles.css      # All styling
 ├── js/
 │   └── script.js       # JavaScript for interactions
-├── images/             # Place your images here
+├── images/             # Your couple photos for the slideshow
 ├── package.json        # Project dependencies
+├── .gitignore          # Git ignore file
 └── README.md          # This file
 ```
 
@@ -135,34 +140,125 @@ Edit CSS variables in `css/styles.css` (lines 7-12):
 --color-accent: #C9ADA7;       /* Additional accent */
 ```
 
-### Add Images
+### Hero Slideshow
 
-1. Place images in the `images/` folder
-2. Update the hero section in `index.html` to add a background image:
-```css
-.hero {
-    background-image: url('../images/your-photo.jpg');
-    background-size: cover;
-    background-position: center;
-}
-```
+The hero section features an automatic photo slideshow that cycles through your images every 5 seconds.
+
+**Current Setup:**
+- 19 photos are cycling in the slideshow
+- Images are in the `images/` folder
+- Smooth fade transitions between photos
+- Color-tinted overlay ensures text remains readable
+- Handles different aspect ratios automatically
+
+**To customize:**
+
+1. **Add/Remove Photos:**
+   - Add your photos to the `images/` folder
+   - Update the slideshow in `index.html` (lines 14-72)
+   - Add or remove `<div class="slide">` blocks as needed
+
+2. **Change Slide Duration:**
+   - Edit `js/script.js` line 4
+   - Change `slideInterval = 5000` (value in milliseconds)
+
+3. **Adjust Photo Crop Position:**
+   - Some photos may cut off faces or important parts when cropped
+   - Add a class to the `<img>` tag to change the crop position
+   - Works on all devices including mobile
+
+   **Available crop classes:**
+   - `crop-top` - Focus on top of image (good for faces)
+   - `crop-bottom` - Focus on bottom of image
+   - `crop-left` - Focus on left side
+   - `crop-right` - Focus on right side
+   - `crop-top-left` - Focus on top-left corner
+   - `crop-top-right` - Focus on top-right corner
+   - `crop-bottom-left` - Focus on bottom-left corner
+   - `crop-bottom-right` - Focus on bottom-right corner
+   - `crop-upper` - Focus slightly above center (30% from top)
+   - `crop-lower` - Focus slightly below center (70% from top)
+
+   **Example:**
+   ```html
+   <!-- Default center crop -->
+   <div class="slide">
+       <img src="images/photo1.jpg" alt="Patrick & Gabriella">
+   </div>
+
+   <!-- Crop to show faces at top of image -->
+   <div class="slide">
+       <img src="images/photo2.jpg" class="crop-top" alt="Patrick & Gabriella">
+   </div>
+
+   <!-- Fine-tune to upper portion -->
+   <div class="slide">
+       <img src="images/photo3.jpg" class="crop-upper" alt="Patrick & Gabriella">
+   </div>
+   ```
+
+4. **Adjust Overlay Color:**
+   - Edit `css/styles.css` (lines 177-182)
+   - Modify the gradient colors in `.hero-overlay`
 
 ## Deployment
 
-### GitHub Pages
+### GitHub Pages (Recommended)
 
-1. Push your code to GitHub
-2. Go to repository Settings → Pages
-3. Select branch (main) and folder (root)
-4. Your site will be live at `https://username.github.io/wedding-site`
+This repository includes a GitHub Actions workflow that automatically deploys your site to GitHub Pages whenever you push to the main branch.
 
-### Netlify
+**Initial Setup:**
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial wedding site commit"
+   git push origin main
+   ```
+
+2. **Enable GitHub Pages**
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages** (in the left sidebar)
+   - Under "Build and deployment":
+     - Source: Select **GitHub Actions**
+   - Click **Save**
+
+3. **Wait for deployment**
+   - Go to the **Actions** tab in your repository
+   - You'll see the "Deploy to GitHub Pages" workflow running
+   - Once complete (green checkmark), your site is live!
+
+4. **Access your site**
+   - Your site will be live at: `https://[your-username].github.io/wedding-site`
+   - Or if you have a custom domain configured: your custom domain
+
+**Making Changes:**
+
+After the initial setup, any changes you push to the main branch will automatically trigger a new deployment:
+
+```bash
+git add .
+git commit -m "Update wedding details"
+git push origin main
+```
+
+The site will update automatically within 1-2 minutes.
+
+**Using Claude Web:**
+
+Once deployed, you can use Claude on the web to make changes:
+1. Access your repository through GitHub
+2. Use Claude to edit files directly
+3. Commit and push changes
+4. View the updated site on your phone at your GitHub Pages URL
+
+### Alternative: Netlify
 
 1. Push to GitHub
 2. Connect your repository to Netlify
 3. Deploy automatically on every push
 
-### Vercel
+### Alternative: Vercel
 
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run: `vercel`

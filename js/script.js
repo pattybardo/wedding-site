@@ -1,3 +1,27 @@
+// Hero slideshow
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slideInterval = 5000; // 5 seconds per image
+
+function showSlide(index) {
+    // Remove active class from all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    // Add active class to current slide
+    slides[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Start slideshow if slides exist
+if (slides.length > 0) {
+    showSlide(0);
+    setInterval(nextSlide, slideInterval);
+}
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

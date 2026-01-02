@@ -196,6 +196,7 @@ npm run dev         # Same as npm start
 5. **Section Comments:** Clearly delineate sections with comment blocks
 6. **Transitions:** Standard 0.3s ease for interactive elements
 7. **Box Shadows:** Subtle shadows (rgba(0, 0, 0, 0.05) to 0.1)
+8. **Icons:** Use Google Material Icons or Font Awesome for all icon needs - never use emoji characters in production HTML/CSS. Keep the design clean and professional with icon fonts.
 
 ### JavaScript Conventions
 1. **ES6+:** Use modern JavaScript (arrow functions, const/let, forEach)

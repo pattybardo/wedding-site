@@ -94,14 +94,106 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
     text-align: center;
     position: relative;
+    overflow: hidden;
+    background-color: var(--color-dark);
+}
+
+/* Slideshow */
+.slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Different crop positions for individual photos */
+.slide img.crop-top {
+    object-position: center top;
+}
+
+.slide img.crop-bottom {
+    object-position: center bottom;
+}
+
+.slide img.crop-left {
+    object-position: left center;
+}
+
+.slide img.crop-right {
+    object-position: right center;
+}
+
+.slide img.crop-top-left {
+    object-position: left top;
+}
+
+.slide img.crop-top-right {
+    object-position: right top;
+}
+
+.slide img.crop-bottom-left {
+    object-position: left bottom;
+}
+
+.slide img.crop-bottom-right {
+    object-position: right bottom;
+}
+
+/* Fine-tuned positioning options */
+.slide img.crop-upper {
+    object-position: center 30%;
+}
+
+.slide img.crop-lower {
+    object-position: center 70%;
+}
+
+/* Overlay for text readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(139, 115, 85, 0.7) 0%,
+        rgba(212, 175, 119, 0.6) 50%,
+        rgba(201, 173, 167, 0.7) 100%
+    );
+    z-index: 1;
 }
 
 .hero-content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     color: var(--color-white);
+    position: relative;
+    z-index: 2;
 }
 
 .names {
@@ -114,16 +206,18 @@ p {
 }
 
 .tagline {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    font-weight: 300;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
     margin-bottom: var(--spacing-sm);
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.15rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .date {
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     font-weight: 400;
     letter-spacing: 0.15rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ===========================
@@ -178,6 +272,22 @@ p {
 
 .navigation a.active::after {
     width: 100%;
+}
+
+.navigation a.nav-page-link {
+    background-color: var(--color-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.navigation a.nav-page-link::after {
+    display: none;
+}
+
+.navigation a.nav-page-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 /* ===========================
@@ -577,6 +687,19 @@ p {
    =========================== */
 
 @media (max-width: 768px) {
+    .hero-content {
+        padding: var(--spacing-md);
+        max-width: 90%;
+    }
+
+    .names {
+        letter-spacing: 0.2rem;
+    }
+
+    .tagline {
+        letter-spacing: 0.1rem;
+    }
+
     .navigation {
         flex-wrap: wrap;
         gap: var(--spacing-sm);
