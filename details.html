@@ -11,6 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Access Code Modal -->
+    <div id="accessModal" class="access-modal">
+        <div class="access-modal-content">
+            <h2>Welcome!</h2>
+            <p>Please enter the access code to view our wedding website</p>
+            <input type="text" id="accessCode" placeholder="Enter code" maxlength="4" autocomplete="off">
+            <button id="submitCode" class="button button-primary">Submit</button>
+            <p id="accessError" class="access-error"></p>
+        </div>
+    </div>
+
     <header class="page-header">
         <div class="container">
             <h1 class="page-title">Details & Information</h1>
@@ -44,6 +55,24 @@
                         <p>We completely understand that some of you may still be breastfeeding. If this applies to you, please reach out to us directly—we'll make arrangements to ensure you and your little one are comfortable.</p>
 
                         <p>We hope you understand and are able to enjoy a rare evening out. We can't wait to celebrate with you!</p>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>Dress Code</h2>
+                    <p>We want you to feel comfortable and look your best! Our wedding will be <strong>semi-formal/cocktail attire</strong>.</p>
+
+                    <div class="dress-code-box">
+                        <div class="dress-code-section">
+                            <h4>For Guests</h4>
+                            <p>Think elegant spring celebration in the Swedish countryside. Cocktail dresses, dressy separates, suits, or blazers with dress pants are all perfect. Ties are optional—comfort is key!</p>
+                            <p class="dress-note">Please note: We kindly ask that you avoid jeans and overly casual attire.</p>
+                        </div>
+
+                        <div class="dress-code-section">
+                            <h4>June in Sweden</h4>
+                            <p>June weather in Sweden is generally pleasant with temperatures around 15-20°C (59-68°F). We recommend bringing a light jacket or wrap for the evening, as it can get cooler after sunset.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -147,8 +176,77 @@
                 </div>
 
                 <div class="info-section">
+                    <h2>Questions?</h2>
+                    <p>If you have any questions or need assistance with your travel plans, please don't hesitate to reach out to us!</p>
+
+                    <div class="contact-box">
+                        <div class="contact-item">
+                            <h4>Email</h4>
+                            <p><a href="mailto:dr.p.bardo+wedding@gmail.com">dr.p.bardo+wedding@gmail.com</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+46733403380">+46 73 340 33 80</a></p>
+                        </div>
+                    </div>
+
+                    <p class="info-note">We're happy to help with any questions about the wedding, travel, accommodations, or anything else!</p>
+                </div>
+
+                <div class="info-section">
                     <h2>Frequently Asked Questions</h2>
-                    <p class="placeholder-text">FAQ section coming soon...</p>
+
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h4>What's the weather like in June?</h4>
+                            <p>June is a beautiful time in Sweden! Expect temperatures around 15-20°C (59-68°F) during the day. Evenings can be cooler, so we recommend bringing a light jacket or wrap. Rain is possible, so a small umbrella might be handy.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Is there parking at the venue?</h4>
+                            <p>Yes! Villa Vanahem has ample parking available for guests. The venue is easily accessible by car, and parking is free.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>What's the dress code?</h4>
+                            <p>Semi-formal/cocktail attire. Think elegant and comfortable! See our <a href="#" onclick="event.preventDefault(); document.querySelector('.info-section:has(h2:contains(Dress Code))').scrollIntoView({behavior: 'smooth'});">Dress Code section</a> above for more details.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Are there vegetarian or dietary options?</h4>
+                            <p>Absolutely! We'll accommodate all dietary restrictions and preferences. Please let us know about any dietary needs when you RSVP, and we'll make sure you're taken care of.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Can I take photos during the ceremony?</h4>
+                            <p>We'd love for you to be fully present during our ceremony! We'll have a professional photographer capturing every moment. We kindly ask that you put away your phones and cameras during the ceremony—but feel free to snap away at the reception!</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>What language will the ceremony be in?</h4>
+                            <p>The ceremony will be conducted in English, making it accessible for all our international guests. Some elements may include Swedish touches to honor Gabriella's heritage.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Will there be transportation between the hotel and venue?</h4>
+                            <p>Stenungsbad Yacht Club is just a few minutes from Villa Vanahem. We'll provide more details about transportation options closer to the date.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>What time should I arrive?</h4>
+                            <p>Please plan to arrive at least 15-20 minutes before the ceremony start time (14:00) on Saturday, June 6th. This gives you time to find parking, get settled, and enjoy the venue before we begin.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Is the wedding indoors or outdoors?</h4>
+                            <p>We're planning for an outdoor ceremony, weather permitting, with indoor backup options available. The reception will be held indoors.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Can I bring a plus-one?</h4>
+                            <p>We've carefully crafted our guest list based on venue capacity. If your invitation includes a plus-one, it will be indicated on your RSVP. If you have questions, please contact us directly.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
