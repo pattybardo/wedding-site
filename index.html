@@ -9,8 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+    <!-- Access Code Modal -->
+    <div id="accessModal" class="access-modal">
+        <div class="access-modal-content">
+            <h2>Welcome!</h2>
+            <p>Please enter the access code to view our wedding website</p>
+            <input type="text" id="accessCode" placeholder="Enter code" maxlength="4" autocomplete="off">
+            <button id="submitCode" class="button button-primary">Submit</button>
+            <p id="accessError" class="access-error"></p>
+        </div>
+    </div>
+
     <header class="hero">
         <div class="slideshow">
             <div class="slide active">
@@ -73,6 +85,9 @@
             <h1 class="names">Gabriella & Patrick Bardo</h1>
             <p class="date">June 6, 2026 | Villa Vanahem, Stenungsund</p>
         </div>
+        <div class="slideshow-progress">
+            <div class="progress-bar"></div>
+        </div>
     </header>
 
     <nav class="navigation">
@@ -107,6 +122,10 @@
                             <h3>Welcome BBQ</h3>
                             <p class="time">19:00</p>
                             <p>Join us for a relaxed evening of food and mingling at the venue</p>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gabriella%20%26%20Patrick%27s%20Wedding%20-%20Welcome%20BBQ&dates=20260605T190000/20260605T220000&details=Join%20us%20for%20a%20relaxed%20evening%20of%20food%20and%20mingling%20at%20the%20venue&location=Villa%20Vanahem%2C%20%C3%96sterbergs%20v%C3%A4g%201%2C%20444%2048%20Stenungsund%2C%20Sweden" target="_blank" class="add-to-calendar" title="Add to Google Calendar">
+                                <span class="material-icons">event</span>
+                                <span>Add to Calendar</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -118,11 +137,19 @@
                             <h3>Ceremony</h3>
                             <p class="time">14:00</p>
                             <p>Join us for our wedding ceremony</p>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gabriella%20%26%20Patrick%27s%20Wedding%20-%20Ceremony&dates=20260606T140000/20260606T150000&details=Join%20us%20for%20our%20wedding%20ceremony&location=Villa%20Vanahem%2C%20%C3%96sterbergs%20v%C3%A4g%201%2C%20444%2048%20Stenungsund%2C%20Sweden" target="_blank" class="add-to-calendar" title="Add to Google Calendar">
+                                <span class="material-icons">event</span>
+                                <span>Add to Calendar</span>
+                            </a>
                         </div>
                         <div class="timeline-item">
                             <h3>Reception</h3>
                             <p class="time">16:00</p>
                             <p>Dinner, drinks, and dancing</p>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Gabriella%20%26%20Patrick%27s%20Wedding%20-%20Reception&dates=20260606T160000/20260606T230000&details=Dinner%2C%20drinks%2C%20and%20dancing&location=Villa%20Vanahem%2C%20%C3%96sterbergs%20v%C3%A4g%201%2C%20444%2048%20Stenungsund%2C%20Sweden" target="_blank" class="add-to-calendar" title="Add to Google Calendar">
+                                <span class="material-icons">event</span>
+                                <span>Add to Calendar</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -148,11 +175,9 @@
         <section id="rsvp" class="section section-alt">
             <div class="container">
                 <h2>RSVP</h2>
-                <p class="rsvp-message">Please RSVP by [Date]</p>
+                <p class="rsvp-message">Please RSVP by March 1st, 2026</p>
                 <div class="rsvp-container">
-                    <!-- Google Form will be embedded here -->
-                    <a href="YOUR_GOOGLE_FORM_URL_HERE" class="button button-primary" target="_blank">RSVP Now</a>
-                    <p class="note">You can also embed the Google Form directly here using an iframe</p>
+                    <a href="https://forms.gle/nNHAkJy8zQKkamzAA" class="button button-primary" target="_blank">RSVP Now</a>
                 </div>
             </div>
         </section>
