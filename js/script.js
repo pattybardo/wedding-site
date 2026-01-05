@@ -105,15 +105,30 @@ function resumeSlideshow() {
     updateProgress();
 }
 
+function toggleSlideshow() {
+    const controlButton = document.getElementById('slideshowControl');
+    const icon = controlButton.querySelector('.material-icons');
+
+    if (isPaused) {
+        resumeSlideshow();
+        icon.textContent = 'pause';
+        controlButton.setAttribute('aria-label', 'Pause slideshow');
+    } else {
+        pauseSlideshow();
+        icon.textContent = 'play_arrow';
+        controlButton.setAttribute('aria-label', 'Play slideshow');
+    }
+}
+
 // Start slideshow if slides exist
 if (slides.length > 0) {
     showSlide(0);
     updateProgress();
 
-    // Pause on hover
-    if (hero) {
-        hero.addEventListener('mouseenter', pauseSlideshow);
-        hero.addEventListener('mouseleave', resumeSlideshow);
+    // Add click handler for control button
+    const controlButton = document.getElementById('slideshowControl');
+    if (controlButton) {
+        controlButton.addEventListener('click', toggleSlideshow);
     }
 }
 
