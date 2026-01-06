@@ -3,10 +3,16 @@ const CORRECT_CODE = '0606';
 const ACCESS_KEY = 'weddingAccessGranted';
 
 function checkAccess() {
-    const accessGranted = sessionStorage.getItem(ACCESS_KEY);
+    const accessGranted = localStorage.getItem(ACCESS_KEY);
     if (!accessGranted) {
-        document.getElementById('accessModal').classList.add('show');
+        const modal = document.getElementById('accessModal');
+        modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+
+        // Set focus to input when modal opens
+        setTimeout(() => {
+            document.getElementById('accessCode')?.focus();
+        }, 100);
     }
 }
 
@@ -15,13 +21,30 @@ function validateCode() {
     const errorElement = document.getElementById('accessError');
 
     if (inputCode === CORRECT_CODE) {
-        sessionStorage.setItem(ACCESS_KEY, 'true');
+        localStorage.setItem(ACCESS_KEY, 'true');
         document.getElementById('accessModal').classList.remove('show');
         document.body.style.overflow = 'auto';
+        errorElement.textContent = '';
     } else {
-        errorElement.textContent = 'Incorrect code. Please try again.';
+        errorElement.textContent = 'Incorrect code. Please try again or contact us for help.';
         document.getElementById('accessCode').value = '';
         document.getElementById('accessCode').focus();
+    }
+}
+
+function handleModalEscape(e) {
+    const modal = document.getElementById('accessModal');
+    if (e.key === 'Escape' && modal?.classList.contains('show')) {
+        const shouldClose = confirm(
+            'The access code is required to view this website.\n\n' +
+            'If you don\'t have the code, please contact us at:\n' +
+            'dr.p.bardo+wedding@gmail.com\n\n' +
+            'Close the access code prompt anyway?'
+        );
+        if (shouldClose) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
     }
 }
 
@@ -42,8 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 validateCode();
             }
         });
-        codeInput.focus();
     }
+
+    // Add ESC key handler for modal
+    document.addEventListener('keydown', handleModalEscape);
 });
 
 // Hero slideshow with pause on hover and progress bar
@@ -123,7 +148,22 @@ function toggleSlideshow() {
 // Start slideshow if slides exist
 if (slides.length > 0) {
     showSlide(0);
-    updateProgress();
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion) {
+        updateProgress();
+    } else {
+        // If user prefers reduced motion, pause slideshow by default
+        isPaused = true;
+        const controlButton = document.getElementById('slideshowControl');
+        if (controlButton) {
+            const icon = controlButton.querySelector('.material-icons');
+            icon.textContent = 'play_arrow';
+            controlButton.setAttribute('aria-label', 'Play slideshow');
+        }
+    }
 
     // Add click handler for control button
     const controlButton = document.getElementById('slideshowControl');

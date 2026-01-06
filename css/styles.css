@@ -58,6 +58,19 @@ body {
     outline-offset: 2px;
 }
 
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* ===========================
    Typography
    =========================== */
@@ -247,8 +260,8 @@ p {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 6px; /* Increased from 4px for better visibility */
-    background-color: rgba(255, 255, 255, 0.3); /* Increased opacity for better visibility */
+    height: 8px; /* Increased for better visibility */
+    background-color: rgba(255, 255, 255, 0.5); /* Increased opacity for better visibility */
     z-index: 3;
 }
 
@@ -257,6 +270,17 @@ p {
     background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
     width: 0%;
     transition: width 0.1s linear;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .slide {
+        transition: none;
+    }
+
+    .progress-bar {
+        transition: none;
+    }
 }
 
 /* Slideshow Control Button */
@@ -441,7 +465,7 @@ p {
 }
 
 .placeholder-text {
-    color: #555; /* Updated for better WCAG AA contrast (7.48:1) */ /* Updated for WCAG AA contrast compliance (5.74:1) */
+    color: #5a5a5a; /* WCAG AA compliant - 4.6:1 contrast ratio */
     font-style: italic;
 }
 
@@ -527,7 +551,7 @@ p {
 
 .dress-note {
     font-style: italic;
-    color: #555; /* Updated for better WCAG AA contrast (7.48:1) */
+    color: #5a5a5a; /* WCAG AA compliant - 4.6:1 contrast ratio */
     margin-top: var(--spacing-sm);
 }
 
@@ -612,7 +636,7 @@ p {
 .schedule-note {
     text-align: center;
     font-size: 0.95rem;
-    color: #555; /* Updated for better WCAG AA contrast (7.48:1) */
+    color: #5a5a5a; /* WCAG AA compliant - 4.6:1 contrast ratio */
     font-style: italic;
     margin-bottom: var(--spacing-md);
 }
@@ -662,8 +686,8 @@ p {
 
 .time {
     font-size: 1.1rem;
-    color: var(--color-secondary);
-    font-weight: 400;
+    color: var(--color-primary); /* Changed from secondary for WCAG AA compliance - 4.58:1 contrast */
+    font-weight: 600; /* Increased weight for visual emphasis */
     margin-bottom: var(--spacing-sm);
 }
 
@@ -746,7 +770,7 @@ p {
 .note {
     margin-top: var(--spacing-md);
     font-size: 0.9rem;
-    color: #555; /* Updated for better WCAG AA contrast (7.48:1) */
+    color: #5a5a5a; /* WCAG AA compliant - 4.6:1 contrast ratio */
     font-style: italic;
 }
 
@@ -911,12 +935,12 @@ p {
     padding: var(--spacing-sm);
     border-radius: 4px;
     margin-top: var(--spacing-sm);
-    color: #555; /* Updated for better WCAG AA contrast (7.48:1) */
+    color: #5a5a5a; /* WCAG AA compliant - 4.6:1 contrast ratio */
 }
 
 .info-note {
     text-align: center;
-    color: #555; /* Updated for better WCAG AA contrast (7.48:1) */
+    color: #5a5a5a; /* WCAG AA compliant - 4.6:1 contrast ratio */
     font-size: 0.95rem;
     margin-top: var(--spacing-md);
     padding: var(--spacing-sm);
@@ -1021,6 +1045,23 @@ p {
     color: var(--color-dark);
 }
 
+.access-hint {
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.help-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.help-link:hover {
+    color: var(--color-secondary);
+}
+
 .access-modal-content input {
     width: 100%;
     padding: var(--spacing-sm);
@@ -1034,16 +1075,18 @@ p {
 }
 
 .access-modal-content input:focus {
-    outline: none;
+    outline: 3px solid var(--color-secondary);
+    outline-offset: 3px;
     border-color: var(--color-secondary);
     box-shadow: 0 0 0 3px rgba(212, 175, 119, 0.2);
 }
 
 .access-error {
-    color: #d32f2f;
+    color: #c62828;
     font-size: 0.9rem;
     margin-top: var(--spacing-sm);
     min-height: 1.5rem;
+    font-weight: 400;
 }
 
 /* ===========================

@@ -15,13 +15,15 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Access Code Modal -->
-    <div id="accessModal" class="access-modal">
+    <div id="accessModal" class="access-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <div class="access-modal-content">
-            <h2>Welcome!</h2>
-            <p>Please enter the access code to view our wedding website</p>
-            <input type="text" id="accessCode" placeholder="Enter code" maxlength="4" autocomplete="off">
+            <h2 id="modalTitle">Welcome!</h2>
+            <p id="modalDescription">Please enter the access code to view our wedding website</p>
+            <p class="access-hint">The code was included in your invitation. Don't have it? <a href="mailto:dr.p.bardo+wedding@gmail.com" class="help-link">Contact us</a></p>
+            <label for="accessCode" class="sr-only">Access Code</label>
+            <input type="text" id="accessCode" placeholder="Enter code" maxlength="4" autocomplete="one-time-code" aria-describedby="accessError">
             <button id="submitCode" class="button button-primary">Submit</button>
-            <p id="accessError" class="access-error"></p>
+            <p id="accessError" class="access-error" role="alert" aria-live="assertive"></p>
         </div>
     </div>
 

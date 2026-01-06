@@ -10,76 +10,79 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preload" as="image" href="images/DSC_0110.jpg">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Access Code Modal -->
-    <div id="accessModal" class="access-modal">
+    <div id="accessModal" class="access-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
         <div class="access-modal-content">
-            <h2>Welcome!</h2>
-            <p>Please enter the access code to view our wedding website</p>
-            <input type="text" id="accessCode" placeholder="Enter code" maxlength="4" autocomplete="off">
+            <h2 id="modalTitle">Welcome!</h2>
+            <p id="modalDescription">Please enter the access code to view our wedding website</p>
+            <p class="access-hint">The code was included in your invitation. Don't have it? <a href="mailto:dr.p.bardo+wedding@gmail.com" class="help-link">Contact us</a></p>
+            <label for="accessCode" class="sr-only">Access Code</label>
+            <input type="text" id="accessCode" placeholder="Enter code" maxlength="4" autocomplete="one-time-code" aria-describedby="accessError">
             <button id="submitCode" class="button button-primary">Submit</button>
-            <p id="accessError" class="access-error"></p>
+            <p id="accessError" class="access-error" role="alert" aria-live="assertive"></p>
         </div>
     </div>
 
     <header class="hero">
         <div class="slideshow">
             <div class="slide active">
-                <img src="images/DSC_0110.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/DSC_0110.jpg" class="crop-upper" alt="">
             </div>
             <div class="slide">
-                <img src="images/DSC_1948.jpg" alt="Patrick & Gabriella">
+                <img src="images/DSC_1948.jpg" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_0410.jpg" alt="Patrick & Gabriella">
+                <img src="images/IMG_0410.jpg" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_1193.jpg" class="crop-lower" alt="Patrick & Gabriella">
+                <img src="images/IMG_1193.jpg" class="crop-lower" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_0579.jpg" alt="Patrick & Gabriella">
+                <img src="images/IMG_0579.jpg" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_1978.jpg" alt="Patrick & Gabriella">
+                <img src="images/IMG_1978.jpg" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_4059.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_4059.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_4187.jpg" alt="Patrick & Gabriella">
+                <img src="images/IMG_4187.jpg" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_5342.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_5342.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_8829.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_8829.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_8978.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_8978.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_9464.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_9464.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_4080.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_4080.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_1281.jpg" class="crop-lower" alt="Patrick & Gabriella">
+                <img src="images/IMG_1281.jpg" class="crop-lower" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_2654.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_2654.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_3209.jpg" class="crop-upper" alt="Patrick & Gabriella">
+                <img src="images/IMG_3209.jpg" class="crop-upper" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_5475.jpg" class="crop-top-left" alt="Patrick & Gabriella">
+                <img src="images/IMG_5475.jpg" class="crop-top-left" loading="lazy" alt="">
             </div>
             <div class="slide">
-                <img src="images/IMG_6351.jpg" alt="Patrick & Gabriella">
+                <img src="images/IMG_6351.jpg" loading="lazy" alt="">
             </div>
         </div>
         <div class="hero-overlay"></div>
