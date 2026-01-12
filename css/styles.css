@@ -454,14 +454,14 @@ p {
 
 .info-section h2 {
     text-align: left;
-    color: var(--color-primary);
+    color: var(--color-dark);
     margin-bottom: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
     border-bottom: 2px solid var(--color-light);
 }
 
 .info-section h3 {
-    color: var(--color-primary);
+    color: var(--color-dark);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1002,7 +1002,7 @@ p {
 }
 
 .transport-option h4 {
-    color: var(--color-primary);
+    color: var(--color-dark);
     margin-bottom: var(--spacing-sm);
     font-size: 1.3rem;
 }
