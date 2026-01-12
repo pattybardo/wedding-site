@@ -3,12 +3,13 @@
    =========================== */
 
 :root {
-    --color-primary: #8B7355;
-    --color-secondary: #D4AF77;
-    --color-accent: #C9ADA7;
+    --color-primary: #5272b7;
+    --color-secondary: #3b64a1;
+    --color-accent: #25218c;
     --color-dark: #2C2C2C;
     --color-light: #F8F6F4;
     --color-white: #FFFFFF;
+    --color-beige: #8B7355;
 
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Montserrat', sans-serif;
@@ -267,7 +268,7 @@ p {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+    background: linear-gradient(90deg, var(--color-light), var(--color-white));
     width: 0%;
     transition: width 0.1s linear;
 }
@@ -404,7 +405,7 @@ p {
    =========================== */
 
 .page-header {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-beige) 0%, var(--color-secondary) 100%);
     color: var(--color-white);
     padding: var(--spacing-lg) 0;
     text-align: center;
@@ -651,7 +652,7 @@ p {
 
 .day-heading {
     text-align: center;
-    color: var(--color-primary);
+    color: var(--color-dark);
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
     font-weight: 400;
     margin-bottom: var(--spacing-sm);
@@ -680,13 +681,13 @@ p {
 }
 
 .timeline-item h3 {
-    color: var(--color-primary);
+    color: var(--color-dark);
     margin-bottom: var(--spacing-xs);
 }
 
 .time {
     font-size: 1.1rem;
-    color: var(--color-primary); /* Changed from secondary for WCAG AA compliance - 4.58:1 contrast */
+    color: var(--color-dark); /* Changed from secondary for WCAG AA compliance - 4.58:1 contrast */
     font-weight: 600; /* Increased weight for visual emphasis */
     margin-bottom: var(--spacing-sm);
 }
@@ -728,7 +729,7 @@ p {
 }
 
 .venue-info h3 {
-    color: var(--color-primary);
+    color: var(--color-dark);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -758,7 +759,7 @@ p {
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: var(--color-dark);
 }
 
 .rsvp-container {
@@ -824,6 +825,104 @@ p {
 
 .accommodation-details p {
     margin-bottom: var(--spacing-xs);
+}
+
+.accommodation-details ul {
+    margin: var(--spacing-xs) 0 var(--spacing-sm) var(--spacing-md);
+    list-style-type: disc;
+}
+
+.accommodation-details li {
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.accommodation-details a:not(.button) {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+.accommodation-details a:not(.button):hover {
+    color: var(--color-secondary);
+    border-bottom-width: 2px;
+}
+
+.info-note a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: all 0.3s ease;
+}
+
+.info-note a:hover {
+    color: var(--color-secondary);
+    border-bottom-width: 2px;
+}
+
+.accommodation-dropdown {
+    margin: var(--spacing-md) 0;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--color-secondary);
+    overflow: hidden;
+}
+
+.accommodation-dropdown summary {
+    padding: var(--spacing-md);
+    cursor: pointer;
+    font-weight: 400;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+    list-style: none;
+}
+
+.accommodation-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.accommodation-dropdown summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.accommodation-dropdown[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.accommodation-dropdown summary:hover {
+    background-color: var(--color-light);
+}
+
+.accommodation-dropdown .dropdown-content {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.accommodation-dropdown .dropdown-content .accommodation-details {
+    margin-top: 0;
+}
+
+.accommodation-dropdown .dropdown-content a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+.accommodation-dropdown .dropdown-content a:hover {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
 }
 
 .hotel-recommendations {
@@ -899,7 +998,7 @@ p {
     margin-bottom: var(--spacing-md);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid var(--color-accent);
+    border-left: 4px solid var(--color-secondary);
 }
 
 .transport-option h4 {
