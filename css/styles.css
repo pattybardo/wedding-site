@@ -97,6 +97,12 @@ h3 {
     font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
+h4 {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--color-primary);
+    margin-top: var(--spacing-md);
+}
+
 p {
     margin-bottom: var(--spacing-sm);
 }
@@ -498,7 +504,7 @@ p {
     font-weight: 400;
 }
 
-.info-box h4 {
+.info-box h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
     font-size: 1.2rem;
@@ -540,7 +546,7 @@ p {
     border-top: 1px solid rgba(139, 115, 85, 0.15);
 }
 
-.dress-code-section h4 {
+.dress-code-section h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
     font-size: 1.2rem;
@@ -609,7 +615,7 @@ p {
     margin-bottom: 0;
 }
 
-.faq-item h4 {
+.faq-item h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-xs);
     font-size: 1.1rem;
@@ -945,7 +951,7 @@ p {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.hotel-item h4 {
+.hotel-item h3 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-xs);
 }
@@ -1001,7 +1007,7 @@ p {
     border-left: 4px solid var(--color-secondary);
 }
 
-.transport-option h4 {
+.transport-option h3 {
     color: var(--color-dark);
     margin-bottom: var(--spacing-sm);
     font-size: 1.3rem;

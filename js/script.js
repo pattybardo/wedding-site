@@ -201,17 +201,21 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections for fade-in effect
-document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
+// Observe all sections for fade-in effect (except details which is long-form content)
+document.querySelectorAll('.section:not(#details)').forEach(section => {
+    // Check if section is already in viewport
+    const rect = section.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
 
-// Initialize first section
-const firstSection = document.querySelector('.section');
-if (firstSection) {
-    firstSection.style.opacity = '1';
-    firstSection.style.transform = 'translateY(0)';
-}
+    if (isInViewport) {
+        // Section is already visible, don't animate
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+    } else {
+        // Section is below viewport, set up animation
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    }
+});
