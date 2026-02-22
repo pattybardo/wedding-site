@@ -919,14 +919,14 @@ p {
     margin-top: 0;
 }
 
-.accommodation-dropdown .dropdown-content a {
+.accommodation-dropdown .dropdown-content a:not(.button) {
     color: var(--color-primary);
     text-decoration: none;
     border-bottom: 1px solid var(--color-primary);
     transition: color 0.3s ease;
 }
 
-.accommodation-dropdown .dropdown-content a:hover {
+.accommodation-dropdown .dropdown-content a:not(.button):hover {
     color: var(--color-secondary);
     border-bottom-color: var(--color-secondary);
 }
